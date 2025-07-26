@@ -3,11 +3,14 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './utils/db.js';
+import userRoutes from './routes/user.route.js';
 
 
 dotenv.config({});
 
 const app = express();
+
+
 
 // app.get('/', (req, res) => {
 //   return res.status(200).json({
@@ -25,6 +28,8 @@ const corsOptions = {
   credentials : true, // Allow credentials (cookies, authorization headers, etc.)
 };
 app.use(cors(corsOptions));
+
+app.use("/api/v1/user", userRoutes);
 
 
 
