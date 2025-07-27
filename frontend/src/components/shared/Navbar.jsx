@@ -86,7 +86,7 @@ const Navbar = () => {
                                                     </div>
                                                 )
                                             }
-
+ 
                                             <div className='flex w-fit items-center gap-2 cursor-pointer'>
                                                 <LogOut />
                                                 <Button onClick={logoutHandler} variant="link">Logout</Button>
