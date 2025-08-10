@@ -10,7 +10,7 @@ import JobDescription from './components/JobDescription'
 import Companies from './components/admin/companies.jsx'
 import CompanyCreate from './components/admin/CompanyCreate.jsx'
 import CompanySetup from './components/admin/CompanySetup.jsx'
-import AdminJobs from "./components/admin/AdminJobs";
+import AdminJobs from "./components/admin/AdminJobs.jsx";
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
