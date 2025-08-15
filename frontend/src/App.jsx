@@ -12,7 +12,7 @@ import CompanyCreate from './components/admin/CompanyCreate.jsx'
 import CompanySetup from './components/admin/CompanySetup.jsx'
 import AdminJobs from "./components/admin/AdminJobs.jsx";
 import PostJob from './components/admin/PostJob'
-import Applicants from './components/admin/Applicants'
+import Applicants from './components/admin/Applicants.jsx'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 
 
