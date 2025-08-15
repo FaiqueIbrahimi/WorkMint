@@ -13,7 +13,7 @@ import CompanySetup from './components/admin/CompanySetup.jsx'
 import AdminJobs from "./components/admin/AdminJobs.jsx";
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants.jsx'
-import ProtectedRoute from './components/admin/ProtectedRoute'
+import ProtectedRoute from './components/admin/ProtectedRoute.jsx'
 
 
 const appRouter = createBrowserRouter([
