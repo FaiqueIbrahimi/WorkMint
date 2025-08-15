@@ -11,33 +11,42 @@ import applicationRoute from './routes/application.route.js';
 dotenv.config({});
 
 const app = express();
-connectDB();
 
+// Move connectDB to async function and add error handling
+const startServer = async () => {
+  try {
+    await connectDB();
+    console.log('Database connected successfully');
+    
+    //middlewares 
+    app.use(cookieParser());
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+    const corsOptions = {
+      origin: 'https://work-mint-six.vercel.app',
+      credentials : true,
+    };
+    app.use(cors(corsOptions));
 
+    app.use("/api/v1/user", userRoutes);
+    app.use("/api/v1/company", companyRoute);
+    app.use("/api/v1/job", jobRoute);
+    app.use("/api/v1/application", applicationRoute);
 
-// app.get('/', (req, res) => {
-//   return res.status(200).json({
-//     message: 'Welcome to the WorkMint backend API',
-//     success: true,
-//   });
-// });
-
-//middlewares 
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-const corsOptions = {
-  origin: 'https://work-mint-six.vercel.app', // Allow requests from this origin
-  credentials : true, // Allow credentials (cookies, authorization headers, etc.)
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
 };
-app.use(cors(corsOptions));
 
-app.use("/api/v1/user", userRoutes);
-app.use("/api/v1/company", companyRoute);
-app.use("/api/v1/job", jobRoute);
-app.use("/api/v1/application", applicationRoute);
-
-app.listen(process.env.PORT, () => {
-    // connectDB();
-  console.log(`Server is running on http://localhost:${process.env. PORT}`);
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Promise Rejection:', err);
+  process.exit(1);
 });
+
+startServer();
