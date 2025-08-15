@@ -50,7 +50,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { email, password, role } = req.body;
-         if(!await connectDB())return res.status(500).json({message:"Database connection failed",success:false})    ;
+        //  if(!await connectDB())return res.status(500).json({message:"Database connection failed",success:false})    ;
         if (!email || !password || !role) {
             return res.status(400).json({
                 message: "Something is missing",
