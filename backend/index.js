@@ -37,7 +37,7 @@ app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
-// app.listen(process.env.PORT, () => {
-//     // connectDB();
-//   console.log(`Server is running on http://localhost:${process.env. PORT}`);
-// });
+app.listen(process.env.PORT, () => {
+    // connectDB();
+  console.log(`Server is running on http://localhost:${process.env. PORT}`);
+});
