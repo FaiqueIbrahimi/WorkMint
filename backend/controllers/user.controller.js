@@ -99,6 +99,10 @@ export const login = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
+          return res.status(400).json({
+                error: error,
+                success: false,
+            })
     }
 }
 export const logout = async (req, res) => {
