@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
-  origin: 'https://work-mint-six.vercel.app/', // Allow requests from this origin
+  origin: 'https://work-mint-six.vercel.app', // Allow requests from this origin
   credentials : true, // Allow credentials (cookies, authorization headers, etc.)
 };
 app.use(cors(corsOptions));
