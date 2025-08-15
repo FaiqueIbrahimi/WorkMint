@@ -12,7 +12,7 @@ dotenv.config({});
 
 const app = express();
 
-connectDB();
+
 
 // app.get('/', (req, res) => {
 //   return res.status(200).json({
@@ -37,5 +37,6 @@ app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
 app.listen(process.env.PORT, () => {
+    connectDB();
   console.log(`Server is running on http://localhost:${process.env. PORT}`);
 });
