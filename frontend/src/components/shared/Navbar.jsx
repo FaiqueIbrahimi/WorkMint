@@ -28,11 +28,21 @@ const Navbar = () => {
             toast.error(error.response.data.message);
         }
     }
+
+    const handleLogoClick = () => {
+        navigate('/');
+    };
+
     return (
         <div className='bg-white'>
             <div className='flex items-center justify-between mx-auto max-w-7xl h-16 px-10'>
                 <div>
-                    <h1 className='text-2xl font-bold'>Work<span className='text-[#F83002]'>Mint</span></h1>
+                    <button 
+                        onClick={handleLogoClick}
+                        className='text-2xl font-bold hover:opacity-80 transition-opacity duration-200 cursor-pointer'
+                    >
+                        Work<span className='text-[#F83002]'>Mint</span>
+                    </button>
                 </div>
                 <div className='flex items-center gap-12'>
                     <ul className='flex font-medium items-center gap-5'>
