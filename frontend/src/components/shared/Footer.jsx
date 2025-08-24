@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Mail, MapPin, Phone, Facebook, Twitter, Linkedin, Github, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -8,30 +9,160 @@ const Footer = () => {
     navigate('/');
   };
 
+  const quickLinks = [
+    { name: 'Find Jobs', path: '/browse' },
+    { name: 'Companies', path: '/admin/companies' },
+    { name: 'Post a Job', path: '/admin/jobs/create' },
+    { name: 'My Applications', path: '/profile' },
+  ];
+
+  const categories = [
+    'Software Development',
+    'Data Science',
+    'Product Management',
+    'Design',
+    'Marketing',
+    'Sales'
+  ];
+
+  const resources = [
+    'Career Guide',
+    'Resume Tips',
+    'Interview Prep',
+    'Salary Guide',
+    'Blog',
+    'Help Center'
+  ];
+
   return (
-    <footer className="border-t border-t-gray-200 py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <button 
-              onClick={handleLogoClick}
-              className="text-xl font-bold hover:text-gray-600 transition-colors duration-200 cursor-pointer"
-            >
-              WorkMint
-            </button>
-            <p className="text-sm">© 2025 WorkMint. All rights reserved.</p>
+    <footer className="bg-gradient-to-br from-gray-900 to-black text-white">
+      {/* Main footer content */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company info */}
+          <div className="space-y-6">
+            <div>
+              <button 
+                onClick={handleLogoClick}
+                className="text-3xl font-bold bg-gradient-to-r from-[#6A38C2] to-[#F83002] bg-clip-text text-transparent hover:scale-105 transition-transform duration-200 cursor-pointer"
+              >
+                WorkMint
+              </button>
+              <p className="text-gray-400 mt-3 leading-relaxed">
+                Your one-stop hub where talent meets opportunity, making job hunting and hiring smarter, faster, and more efficient.
+              </p>
+            </div>
+            
+            {/* Contact info */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                <MapPin className="w-4 h-4 text-purple-400" />
+                <span className="text-sm">New York, NY 10001</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                <Phone className="w-4 h-4 text-purple-400" />
+                <span className="text-sm">+1 (555) 123-4567</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-purple-400" />
+                <span className="text-sm">hello@workmint.com</span>
+              </div>
+            </div>
           </div>
-          
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="https://facebook.com" className="hover:text-gray-400" aria-label="Facebook">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.676 0H1.324C.593 0 0 .592 0 1.324v21.352C0 23.408.593 24 1.324 24H12.82V14.706H9.692v-3.578h3.128V8.408c0-3.1 1.893-4.787 4.657-4.787 1.325 0 2.463.1 2.794.144v3.238l-1.918.001c-1.503 0-1.794.715-1.794 1.762v2.31h3.587l-.468 3.578h-3.119V24h6.116C23.407 24 24 23.408 24 22.676V1.324C24 .592 23.407 0 22.676 0z" /></svg>
-            </a>
-            <a href="https://twitter.com" className="hover:text-gray-400" aria-label="Twitter">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.835 9.835 0 01-2.828.775 4.934 4.934 0 002.165-2.724 9.867 9.867 0 01-3.127 1.195 4.924 4.924 0 00-8.38 4.49A13.978 13.978 0 011.67 3.149 4.93 4.93 0 003.16 9.724a4.903 4.903 0 01-2.229-.616v.062a4.93 4.93 0 003.946 4.827 4.902 4.902 0 01-2.224.084 4.93 4.93 0 004.6 3.417A9.869 9.869 0 010 21.543a13.978 13.978 0 007.548 2.212c9.057 0 14.01-7.507 14.01-14.01 0-.213-.004-.425-.015-.636A10.012 10.012 0 0024 4.557z" /></svg>
-            </a>
-            <a href="https://linkedin.com" className="hover:text-gray-400" aria-label="LinkedIn">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452H16.85v-5.569c0-1.327-.027-3.037-1.852-3.037-1.854 0-2.137 1.446-2.137 2.94v5.666H9.147V9.756h3.448v1.464h.05c.48-.91 1.653-1.871 3.401-1.871 3.634 0 4.307 2.39 4.307 5.498v5.605zM5.337 8.29c-1.105 0-2-.896-2-2 0-1.106.895-2 2-2 1.104 0 2 .895 2 2 0 1.104-.896 2-2 2zM7.119 20.452H3.553V9.756h3.566v10.696zM22.225 0H1.771C.791 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451c.979 0 1.771-.774 1.771-1.729V1.729C24 .774 23.205 0 22.225 0z" /></svg>
-            </a>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <button
+                    onClick={() => navigate(link.path)}
+                    className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Categories */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Popular Categories</h3>
+            <ul className="space-y-3">
+              {categories.map((category, index) => (
+                <li key={index}>
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer">
+                    {category}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Resources</h3>
+            <ul className="space-y-3">
+              {resources.map((resource, index) => (
+                <li key={index}>
+                  <span className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer">
+                    {resource}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            
+            {/* Newsletter signup */}
+            <div className="mt-8">
+              <h4 className="text-sm font-semibold mb-3 text-white">Stay Updated</h4>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                />
+                <button className="px-4 py-2 bg-gradient-to-r from-[#6A38C2] to-[#8B5CF6] text-white text-sm rounded-lg hover:from-[#5b30a6] hover:to-[#7C3AED] transition-colors">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom section */}
+      <div className="border-t border-gray-800">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-gray-400 text-sm">
+              © 2025 WorkMint. All rights reserved. | 
+              <span className="hover:text-white transition-colors cursor-pointer ml-2">Privacy Policy</span> | 
+              <span className="hover:text-white transition-colors cursor-pointer ml-2">Terms of Service</span>
+            </div>
+            
+            {/* Social Media */}
+            <div className="flex space-x-4">
+              {[
+                { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+                { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                { icon: Github, href: "https://github.com", label: "GitHub" },
+                { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+              ].map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-[#6A38C2] hover:to-[#8B5CF6] transition-all duration-200 transform hover:scale-110"
+                  aria-label={label}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
