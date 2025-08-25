@@ -62,7 +62,7 @@ const LatestJobCards = ({job}) => {
                         {job?.jobType}
                     </Badge>
                     <Badge className='bg-green-50 text-green-700 border border-green-200 hover:bg-green-100 font-medium px-3 py-1'>
-                        <DollarSign className="w-3 h-3 mr-1" />
+                        <span className="text-sm mr-1">₹</span>
                         {job?.salary}LPA
                     </Badge>
                 </div>
