@@ -109,7 +109,7 @@ const HeroSection = () => {
                     <div className='mt-8'>
                         <p className='text-gray-600 mb-4'>Popular Searches:</p>
                         <div className='flex justify-center gap-3 flex-wrap'>
-                            {['Frontend Developer', 'Data Science', 'Product Manager', 'UI/UX Designer', 'Backend Developer'].map((term) => (
+                            {['Frontend Developer', 'Data Scientist', 'Product Manager', 'UI/UX Designer', 'Backend Developer'].map((term) => (
                                 <button
                                     key={term}
                                     onClick={() => {
